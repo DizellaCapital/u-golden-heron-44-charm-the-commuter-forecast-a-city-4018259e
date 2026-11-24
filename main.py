@@ -24,6 +24,9 @@ def main() -> int:
     if "\n" in LINE or "\r" in LINE:
         print("entry must be a single line", file=sys.stderr)
         return 1
+    if "\t" in LINE:
+        print("entry must not contain tabs", file=sys.stderr)
+        return 1
     if not LINE.strip():
         print("entry must not be only whitespace", file=sys.stderr)
         return 1
